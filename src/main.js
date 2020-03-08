@@ -5,11 +5,13 @@ import { BootstrapVue } from 'bootstrap-vue'
 
 import App from './App'
 import router from './router'
+import { firestorePlugin } from 'vuefire'
 
 const firebase = require('./firebase/firebaseConfig')
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
+Vue.use(firestorePlugin)
 
 let app
 firebase.auth.onAuthStateChanged(user => {

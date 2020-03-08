@@ -5,11 +5,13 @@ let firebaseConfig = credentials
 
 firebase.initializeApp(firebaseConfig)
 const auth = firebase.auth()
-const alphaResults = firebase.firestore().collection('results').doc('alpha')
+const db = firebase.firestore()
+const alphaResults = db.collection('results').doc('alpha')
 const FieldValue = firebase.firestore.FieldValue
 
 export {
   auth,
+  db,
   alphaResults,
   FieldValue
 }
