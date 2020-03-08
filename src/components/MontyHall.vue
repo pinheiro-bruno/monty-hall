@@ -32,6 +32,7 @@
 <script>
 import _ from 'underscore'
 import Card from './Card'
+import { alphaResults, FieldValue } from '@/firebase/firebaseConfig'
 
 let CAR = 'car'
 let GOAT = 'goat'
@@ -42,6 +43,8 @@ export default {
   data () {
     return {
       currentStep: 1,
+      changed: false,
+      won: false,
       result: '',
       cards: [
         {
@@ -113,6 +116,8 @@ export default {
         card.revealed = false
       })
 
+      this.won = false
+      this.changed = false
       this.result = ''
       this.cards = _.shuffle(this.cards)
       this.currentStep = 1
@@ -126,10 +131,7 @@ export default {
       }
 
       this.cards.forEach(card => {
-        card.selected = false
-        if (card.id === id) {
-          card.selected = true
-        }
+        card.selected = card.id === id
       })
 
       this.currentStep = 2
@@ -156,19 +158,28 @@ export default {
         card.revealed = true
       })
     },
+    sendResult () {
+      this.won = this.carCard.selected
+      let key = this.changed ? 'CHANGE' : 'KEEP'
+      key += this.won ? '_WON' : '_LOST'
+      alphaResults.update(key, FieldValue.increment(1))
+    },
     showResult () {
+      this.sendResult()
       if (this.carCard.selected) {
-        this.result = 'Congratulation you are a winner.'
+        this.result = 'Congratulations you are a winner.'
       } else {
         this.result = 'Maybe on the next time.'
       }
       this.currentStep = 4
     },
     keep () {
+      this.changed = false
       this.revealAll()
       this.showResult()
     },
     change () {
+      this.changed = true
       let notSelectedCard = this.notSelectedCard
 
       this.selectedCard.selected = false
