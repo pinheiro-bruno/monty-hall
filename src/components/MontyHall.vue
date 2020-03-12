@@ -1,19 +1,31 @@
 <template>
-  <b-container class="monty-hall">
+  <b-container fluid class="table-top">
     <b-row>
       <b-col>
         <div class="result"> {{ result }}</div>
       </b-col>
     </b-row>
 
-    <b-row flex>
-      <card class="card"
-            v-for="card in cards"
-            :key="card.id"
-            :id="card.id"
-            :selected="card.selected"
-            :content="card.content"
-            :revealed="card.revealed"
+    <b-row>
+      <card class="offset-lg-3 offset-xl-3"
+            :id="cards[0].id"
+            :selected="cards[0].selected"
+            :content="cards[0].content"
+            :revealed="cards[0].revealed"
+            @cardSelect="selectCard($event)"
+      >
+      </card>
+      <card :id="cards[1].id"
+            :selected="cards[1].selected"
+            :content="cards[1].content"
+            :revealed="cards[1].revealed"
+            @cardSelect="selectCard($event)"
+      >
+      </card>
+      <card :id="cards[2].id"
+            :selected="cards[2].selected"
+            :content="cards[2].content"
+            :revealed="cards[2].revealed"
             @cardSelect="selectCard($event)"
       >
       </card>
@@ -196,9 +208,16 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
   .deal-buttons {
     margin-top: 20px;
+  }
+
+  .table-top{
+    min-height: 100%;
+    height: 100%;
+    background-image: url('../assets/texture-green.jpg');
+    background-repeat: repeat;
   }
 
   .result {

@@ -1,6 +1,9 @@
 <template>
-  <b-col md="2" :class="{ selected: selected }" class="card" @click="select">
-    <div v-show="revealed" class="content">{{ content }}</div>
+  <b-col cols="4" sm="4" md="4" lg="2" xl="2">
+    <div class="card" @click="select" :class="{ selected: selected }">
+      <div class="card-background"></div>
+      <div v-show="revealed" class="content">{{ content }}</div>
+    </div>
   </b-col>
 </template>
 
@@ -18,10 +21,13 @@ export default {
 
 <style scoped>
   .card {
-    height: 270px;
-    line-height: 270px;
-    margin-right: 20px;
-    margin-left: 20px;
+    background-image: url('../assets/playing-card-back.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  .card-background{
+    padding-top: 150%
   }
 
   .selected {
