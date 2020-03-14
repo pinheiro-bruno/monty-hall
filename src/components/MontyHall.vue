@@ -1,5 +1,9 @@
 <template>
   <b-container fluid class="table-top">
+    <b-navbar id="navbar" class="shadow ">
+      <b-navbar-nav></b-navbar-nav>
+    </b-navbar>
+
     <b-row>
       <b-col>
         <div class="result"> {{ result }}</div>
@@ -223,5 +227,15 @@ export default {
   .result {
     height: 20px;
     margin-bottom: 40px;
+  }
+
+  #navbar{
+    height: 100px;
+    background-image: url('../assets/wood.jpeg');
+    background-repeat: repeat;
+  }
+
+  .container-fluid{
+    padding: 0;
   }
 </style>
