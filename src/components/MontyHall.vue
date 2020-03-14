@@ -1,10 +1,6 @@
 <template>
   <b-container fluid class="table-top">
-    <b-navbar id="navbar" class="shadow ">
-      <b-navbar-nav></b-navbar-nav>
-    </b-navbar>
-
-    <b-row>
+    <b-row id="wood-border" class="shadow ">
       <b-col>
         <div class="result"> {{ result }}</div>
       </b-col>
@@ -214,7 +210,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   .deal-buttons {
-    margin-top: 20px;
+    margin-top: 40px;
   }
 
   .table-top{
@@ -224,15 +220,14 @@ export default {
     background-repeat: repeat;
   }
 
-  .result {
-    height: 20px;
-    margin-bottom: 40px;
-  }
-
-  #navbar{
+  #wood-border{
     height: 100px;
     background-image: url('../assets/wood.jpeg');
     background-repeat: repeat;
+    line-height: 100px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: white;
   }
 
   .container-fluid{
