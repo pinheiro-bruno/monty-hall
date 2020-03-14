@@ -33,9 +33,9 @@
 
     <b-row class="deal-buttons text-center">
       <b-col>
-        <b-button v-show="isDealStep" @click="keep()">Keep</b-button>
-        <b-button v-show="isDealStep" @click="change()">Change</b-button>
-        <b-button v-show="isEndStep" @click="restart()">Restart</b-button>
+        <b-button class="btn-primary" v-show="isDealStep" @click="keep()">Manter minha carta</b-button>
+        <b-button class="btn-primary" v-show="isDealStep" @click="change()">Mudar minha carta</b-button>
+        <b-button class="btn-primary" v-show="isEndStep" @click="restart()">Recomeçar</b-button>
       </b-col>
     </b-row>
   </b-container>
@@ -179,9 +179,9 @@ export default {
     showResult () {
       this.sendResult()
       if (this.carCard.selected) {
-        this.result = 'Congratulations you are a winner.'
+        this.result = 'Parabéns, você ganhou!'
       } else {
-        this.result = 'Maybe on the next time.'
+        this.result = 'Você perdeu, quem sabe da próxima vez'
       }
       this.currentStep = 4
     },
@@ -218,6 +218,14 @@ export default {
     height: 100%;
     background-image: url('../assets/texture-green.jpg');
     background-repeat: repeat;
+  }
+
+  .btn-primary{
+    background-color: #135eae;
+  }
+
+  .btn-primary:hover{
+    background-color: #0a4cae;
   }
 
   #wood-border{
