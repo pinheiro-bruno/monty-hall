@@ -34,6 +34,10 @@ export default {
     transform-style: preserve-3d;
   }
 
+  .card-background{
+    padding-top: 150%
+  }
+
   .card-face-front {
     background-image: url('../assets/playing-card-back.jpg');
     background-repeat: no-repeat;
@@ -55,11 +59,11 @@ export default {
     transform: rotateY( 180deg );
   }
 
-  .card-background{
-    padding-top: 150%
+  .card.selected {
+    transform: scale(1.1)
   }
 
-  .selected {
-    border: 1px green solid;
+  .card.revealed.selected{
+    transform: scale(1.1) rotateY( 180deg );
   }
 </style>
