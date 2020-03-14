@@ -14,10 +14,10 @@
       :options="keptChartOptions"
     />
 
-    Changed and won: {{ result.CHANGE_WON }} <br>
-    Changed and lost: {{ result.CHANGE_LOST }} <br>
-    Kept and won:  {{ result.KEEP_WON }} <br>
-    Kept and lost: {{ result.KEEP_LOST }} <br>
+    Trocou e ganhou: {{ result.CHANGE_WON }} <br>
+    Trocou e perdeu: {{ result.CHANGE_LOST }} <br>
+    Manteve e ganhou:  {{ result.KEEP_WON }} <br>
+    Manteve e perdeu: {{ result.KEEP_LOST }} <br>
 
   </div>
 </template>
@@ -32,11 +32,11 @@ export default {
     return {
       result: {},
       changedChartOptions: {
-        title: 'People that chose to change',
+        title: 'Pessoas que escolheram trocar',
         pieHole: 0.4
       },
       keptChartOptions: {
-        title: 'People that chose to keep',
+        title: 'Pessoas que escolheram manter',
         pieHole: 0.4
       }
     }
@@ -44,16 +44,16 @@ export default {
   computed: {
     changedChartData () {
       return [
-        ['Result', 'Total'],
-        ['Won', this.result.CHANGE_WON],
-        ['Lost', this.result.CHANGE_LOST]
+        ['Resultado', 'Total'],
+        ['Ganhou', this.result.CHANGE_WON],
+        ['Perdeu', this.result.CHANGE_LOST]
       ]
     },
     keptChartData () {
       return [
-        ['Result', 'Total'],
-        ['Won', this.result.KEEP_WON],
-        ['Lost', this.result.KEEP_LOST]
+        ['Resultado', 'Total'],
+        ['Ganhou', this.result.KEEP_WON],
+        ['Perdeu', this.result.KEEP_LOST]
       ]
     }
   },
