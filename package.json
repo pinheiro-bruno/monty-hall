@@ -16,7 +16,7 @@
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.5.0",
     "firebase": "^7.10.0",
-    "underscore": "^1.9.2",
+    "underscore": "^1.12.1",
     "vue": "^2.6.11",
     "vue-google-charts": "^0.3.2",
     "vue-router": "^3.0.1",
